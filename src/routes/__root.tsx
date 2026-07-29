@@ -90,10 +90,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         property: "og:description",
         content:
-          "Turn your syllabus into personalised explanations, quizzes, revision schedules and progress tracking.",
+          "SmartPrep AI is an AI-powered learning platform that turns your syllabus into personalised study plans, explanations and practice.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "SmartPrep AI — Learn Smarter. Prepare Better." },
+      { name: "twitter:description", content: "SmartPrep AI is an AI-powered learning platform that turns your syllabus into personalised study plans, explanations and practice." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/d5caa97a-d8a0-4767-950b-6c35e646fcd1/id-preview-fed807d6--0ba12bf5-c69f-4d48-9714-8bcfd132136f.lovable.app-1785328697494.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/d5caa97a-d8a0-4767-950b-6c35e646fcd1/id-preview-fed807d6--0ba12bf5-c69f-4d48-9714-8bcfd132136f.lovable.app-1785328697494.png" },
     ],
     links: [
       {
