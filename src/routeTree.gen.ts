@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as VerifyEmailRouteImport } from './routes/verify-email'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as SignupRouteImport } from './routes/signup'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as LoginRouteImport } from './routes/login'
@@ -48,6 +49,11 @@ import { Route as AppQuizAttemptRouteImport } from './routes/app.quiz.attempt'
 const VerifyEmailRoute = VerifyEmailRouteImport.update({
   id: '/verify-email',
   path: '/verify-email',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SignupRoute = SignupRouteImport.update({
@@ -230,6 +236,7 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/privacy': typeof PrivacyRoute
   '/signup': typeof SignupRoute
+  '/terms': typeof TermsRoute
   '/verify-email': typeof VerifyEmailRoute
   '/app/adaptive': typeof AppAdaptiveRoute
   '/app/analytics': typeof AppAnalyticsRoute
@@ -266,6 +273,7 @@ export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/privacy': typeof PrivacyRoute
   '/signup': typeof SignupRoute
+  '/terms': typeof TermsRoute
   '/verify-email': typeof VerifyEmailRoute
   '/app/adaptive': typeof AppAdaptiveRoute
   '/app/analytics': typeof AppAnalyticsRoute
@@ -304,6 +312,7 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/privacy': typeof PrivacyRoute
   '/signup': typeof SignupRoute
+  '/terms': typeof TermsRoute
   '/verify-email': typeof VerifyEmailRoute
   '/app/adaptive': typeof AppAdaptiveRoute
   '/app/analytics': typeof AppAnalyticsRoute
@@ -343,6 +352,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/privacy'
     | '/signup'
+    | '/terms'
     | '/verify-email'
     | '/app/adaptive'
     | '/app/analytics'
@@ -379,6 +389,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/privacy'
     | '/signup'
+    | '/terms'
     | '/verify-email'
     | '/app/adaptive'
     | '/app/analytics'
@@ -416,6 +427,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/privacy'
     | '/signup'
+    | '/terms'
     | '/verify-email'
     | '/app/adaptive'
     | '/app/analytics'
@@ -454,6 +466,7 @@ export interface RootRouteChildren {
   LoginRoute: typeof LoginRoute
   PrivacyRoute: typeof PrivacyRoute
   SignupRoute: typeof SignupRoute
+  TermsRoute: typeof TermsRoute
   VerifyEmailRoute: typeof VerifyEmailRoute
 }
 
@@ -464,6 +477,13 @@ declare module '@tanstack/react-router' {
       path: '/verify-email'
       fullPath: '/verify-email'
       preLoaderRoute: typeof VerifyEmailRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/signup': {
@@ -785,6 +805,7 @@ const rootRouteChildren: RootRouteChildren = {
   LoginRoute: LoginRoute,
   PrivacyRoute: PrivacyRoute,
   SignupRoute: SignupRoute,
+  TermsRoute: TermsRoute,
   VerifyEmailRoute: VerifyEmailRoute,
 }
 export const routeTree = rootRouteImport
