@@ -29,6 +29,7 @@ import { Route as AppPredictionRouteImport } from './routes/app.prediction'
 import { Route as AppPlannerRouteImport } from './routes/app.planner'
 import { Route as AppNotificationsRouteImport } from './routes/app.notifications'
 import { Route as AppImageNotesRouteImport } from './routes/app.image-notes'
+import { Route as AppHelpRouteImport } from './routes/app.help'
 import { Route as AppGoalsRouteImport } from './routes/app.goals'
 import { Route as AppFocusRouteImport } from './routes/app.focus'
 import { Route as AppExplainRouteImport } from './routes/app.explain'
@@ -141,6 +142,11 @@ const AppImageNotesRoute = AppImageNotesRouteImport.update({
   path: '/image-notes',
   getParentRoute: () => AppRoute,
 } as any)
+const AppHelpRoute = AppHelpRouteImport.update({
+  id: '/help',
+  path: '/help',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppGoalsRoute = AppGoalsRouteImport.update({
   id: '/goals',
   path: '/goals',
@@ -213,6 +219,7 @@ export interface FileRoutesByFullPath {
   '/app/explain': typeof AppExplainRoute
   '/app/focus': typeof AppFocusRoute
   '/app/goals': typeof AppGoalsRoute
+  '/app/help': typeof AppHelpRoute
   '/app/image-notes': typeof AppImageNotesRoute
   '/app/notifications': typeof AppNotificationsRoute
   '/app/planner': typeof AppPlannerRoute
@@ -245,6 +252,7 @@ export interface FileRoutesByTo {
   '/app/explain': typeof AppExplainRoute
   '/app/focus': typeof AppFocusRoute
   '/app/goals': typeof AppGoalsRoute
+  '/app/help': typeof AppHelpRoute
   '/app/image-notes': typeof AppImageNotesRoute
   '/app/notifications': typeof AppNotificationsRoute
   '/app/planner': typeof AppPlannerRoute
@@ -279,6 +287,7 @@ export interface FileRoutesById {
   '/app/explain': typeof AppExplainRoute
   '/app/focus': typeof AppFocusRoute
   '/app/goals': typeof AppGoalsRoute
+  '/app/help': typeof AppHelpRoute
   '/app/image-notes': typeof AppImageNotesRoute
   '/app/notifications': typeof AppNotificationsRoute
   '/app/planner': typeof AppPlannerRoute
@@ -314,6 +323,7 @@ export interface FileRouteTypes {
     | '/app/explain'
     | '/app/focus'
     | '/app/goals'
+    | '/app/help'
     | '/app/image-notes'
     | '/app/notifications'
     | '/app/planner'
@@ -346,6 +356,7 @@ export interface FileRouteTypes {
     | '/app/explain'
     | '/app/focus'
     | '/app/goals'
+    | '/app/help'
     | '/app/image-notes'
     | '/app/notifications'
     | '/app/planner'
@@ -379,6 +390,7 @@ export interface FileRouteTypes {
     | '/app/explain'
     | '/app/focus'
     | '/app/goals'
+    | '/app/help'
     | '/app/image-notes'
     | '/app/notifications'
     | '/app/planner'
@@ -548,6 +560,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppImageNotesRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/help': {
+      id: '/app/help'
+      path: '/help'
+      fullPath: '/app/help'
+      preLoaderRoute: typeof AppHelpRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/app/goals': {
       id: '/app/goals'
       path: '/goals'
@@ -651,6 +670,7 @@ interface AppRouteChildren {
   AppExplainRoute: typeof AppExplainRoute
   AppFocusRoute: typeof AppFocusRoute
   AppGoalsRoute: typeof AppGoalsRoute
+  AppHelpRoute: typeof AppHelpRoute
   AppImageNotesRoute: typeof AppImageNotesRoute
   AppNotificationsRoute: typeof AppNotificationsRoute
   AppPlannerRoute: typeof AppPlannerRoute
@@ -677,6 +697,7 @@ const AppRouteChildren: AppRouteChildren = {
   AppExplainRoute: AppExplainRoute,
   AppFocusRoute: AppFocusRoute,
   AppGoalsRoute: AppGoalsRoute,
+  AppHelpRoute: AppHelpRoute,
   AppImageNotesRoute: AppImageNotesRoute,
   AppNotificationsRoute: AppNotificationsRoute,
   AppPlannerRoute: AppPlannerRoute,
