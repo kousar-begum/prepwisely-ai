@@ -19,6 +19,7 @@ import { Route as AppIndexRouteImport } from './routes/app.index'
 import { Route as AppWeaknessRouteImport } from './routes/app.weakness'
 import { Route as AppUploadRouteImport } from './routes/app.upload'
 import { Route as AppStudyBuddyRouteImport } from './routes/app.study-buddy'
+import { Route as AppSettingsRouteImport } from './routes/app.settings'
 import { Route as AppRevisionRouteImport } from './routes/app.revision'
 import { Route as AppReportRouteImport } from './routes/app.report'
 import { Route as AppQuizRouteImport } from './routes/app.quiz'
@@ -86,6 +87,11 @@ const AppUploadRoute = AppUploadRouteImport.update({
 const AppStudyBuddyRoute = AppStudyBuddyRouteImport.update({
   id: '/study-buddy',
   path: '/study-buddy',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppSettingsRoute = AppSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
   getParentRoute: () => AppRoute,
 } as any)
 const AppRevisionRoute = AppRevisionRouteImport.update({
@@ -202,6 +208,7 @@ export interface FileRoutesByFullPath {
   '/app/quiz': typeof AppQuizRouteWithChildren
   '/app/report': typeof AppReportRoute
   '/app/revision': typeof AppRevisionRoute
+  '/app/settings': typeof AppSettingsRoute
   '/app/study-buddy': typeof AppStudyBuddyRoute
   '/app/upload': typeof AppUploadRoute
   '/app/weakness': typeof AppWeaknessRoute
@@ -231,6 +238,7 @@ export interface FileRoutesByTo {
   '/app/quiz': typeof AppQuizRouteWithChildren
   '/app/report': typeof AppReportRoute
   '/app/revision': typeof AppRevisionRoute
+  '/app/settings': typeof AppSettingsRoute
   '/app/study-buddy': typeof AppStudyBuddyRoute
   '/app/upload': typeof AppUploadRoute
   '/app/weakness': typeof AppWeaknessRoute
@@ -262,6 +270,7 @@ export interface FileRoutesById {
   '/app/quiz': typeof AppQuizRouteWithChildren
   '/app/report': typeof AppReportRoute
   '/app/revision': typeof AppRevisionRoute
+  '/app/settings': typeof AppSettingsRoute
   '/app/study-buddy': typeof AppStudyBuddyRoute
   '/app/upload': typeof AppUploadRoute
   '/app/weakness': typeof AppWeaknessRoute
@@ -294,6 +303,7 @@ export interface FileRouteTypes {
     | '/app/quiz'
     | '/app/report'
     | '/app/revision'
+    | '/app/settings'
     | '/app/study-buddy'
     | '/app/upload'
     | '/app/weakness'
@@ -323,6 +333,7 @@ export interface FileRouteTypes {
     | '/app/quiz'
     | '/app/report'
     | '/app/revision'
+    | '/app/settings'
     | '/app/study-buddy'
     | '/app/upload'
     | '/app/weakness'
@@ -353,6 +364,7 @@ export interface FileRouteTypes {
     | '/app/quiz'
     | '/app/report'
     | '/app/revision'
+    | '/app/settings'
     | '/app/study-buddy'
     | '/app/upload'
     | '/app/weakness'
@@ -440,6 +452,13 @@ declare module '@tanstack/react-router' {
       path: '/study-buddy'
       fullPath: '/app/study-buddy'
       preLoaderRoute: typeof AppStudyBuddyRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/settings': {
+      id: '/app/settings'
+      path: '/settings'
+      fullPath: '/app/settings'
+      preLoaderRoute: typeof AppSettingsRouteImport
       parentRoute: typeof AppRoute
     }
     '/app/revision': {
@@ -601,6 +620,7 @@ interface AppRouteChildren {
   AppQuizRoute: typeof AppQuizRouteWithChildren
   AppReportRoute: typeof AppReportRoute
   AppRevisionRoute: typeof AppRevisionRoute
+  AppSettingsRoute: typeof AppSettingsRoute
   AppStudyBuddyRoute: typeof AppStudyBuddyRoute
   AppUploadRoute: typeof AppUploadRoute
   AppWeaknessRoute: typeof AppWeaknessRoute
@@ -624,6 +644,7 @@ const AppRouteChildren: AppRouteChildren = {
   AppQuizRoute: AppQuizRouteWithChildren,
   AppReportRoute: AppReportRoute,
   AppRevisionRoute: AppRevisionRoute,
+  AppSettingsRoute: AppSettingsRoute,
   AppStudyBuddyRoute: AppStudyBuddyRoute,
   AppUploadRoute: AppUploadRoute,
   AppWeaknessRoute: AppWeaknessRoute,
