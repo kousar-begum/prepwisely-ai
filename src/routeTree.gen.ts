@@ -22,6 +22,7 @@ import { Route as AppStudyBuddyRouteImport } from './routes/app.study-buddy'
 import { Route as AppRevisionRouteImport } from './routes/app.revision'
 import { Route as AppReportRouteImport } from './routes/app.report'
 import { Route as AppQuizRouteImport } from './routes/app.quiz'
+import { Route as AppProfileRouteImport } from './routes/app.profile'
 import { Route as AppPredictionRouteImport } from './routes/app.prediction'
 import { Route as AppPlannerRouteImport } from './routes/app.planner'
 import { Route as AppImageNotesRouteImport } from './routes/app.image-notes'
@@ -100,6 +101,11 @@ const AppReportRoute = AppReportRouteImport.update({
 const AppQuizRoute = AppQuizRouteImport.update({
   id: '/quiz',
   path: '/quiz',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppProfileRoute = AppProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
   getParentRoute: () => AppRoute,
 } as any)
 const AppPredictionRoute = AppPredictionRouteImport.update({
@@ -192,6 +198,7 @@ export interface FileRoutesByFullPath {
   '/app/image-notes': typeof AppImageNotesRoute
   '/app/planner': typeof AppPlannerRoute
   '/app/prediction': typeof AppPredictionRoute
+  '/app/profile': typeof AppProfileRoute
   '/app/quiz': typeof AppQuizRouteWithChildren
   '/app/report': typeof AppReportRoute
   '/app/revision': typeof AppRevisionRoute
@@ -220,6 +227,7 @@ export interface FileRoutesByTo {
   '/app/image-notes': typeof AppImageNotesRoute
   '/app/planner': typeof AppPlannerRoute
   '/app/prediction': typeof AppPredictionRoute
+  '/app/profile': typeof AppProfileRoute
   '/app/quiz': typeof AppQuizRouteWithChildren
   '/app/report': typeof AppReportRoute
   '/app/revision': typeof AppRevisionRoute
@@ -250,6 +258,7 @@ export interface FileRoutesById {
   '/app/image-notes': typeof AppImageNotesRoute
   '/app/planner': typeof AppPlannerRoute
   '/app/prediction': typeof AppPredictionRoute
+  '/app/profile': typeof AppProfileRoute
   '/app/quiz': typeof AppQuizRouteWithChildren
   '/app/report': typeof AppReportRoute
   '/app/revision': typeof AppRevisionRoute
@@ -281,6 +290,7 @@ export interface FileRouteTypes {
     | '/app/image-notes'
     | '/app/planner'
     | '/app/prediction'
+    | '/app/profile'
     | '/app/quiz'
     | '/app/report'
     | '/app/revision'
@@ -309,6 +319,7 @@ export interface FileRouteTypes {
     | '/app/image-notes'
     | '/app/planner'
     | '/app/prediction'
+    | '/app/profile'
     | '/app/quiz'
     | '/app/report'
     | '/app/revision'
@@ -338,6 +349,7 @@ export interface FileRouteTypes {
     | '/app/image-notes'
     | '/app/planner'
     | '/app/prediction'
+    | '/app/profile'
     | '/app/quiz'
     | '/app/report'
     | '/app/revision'
@@ -449,6 +461,13 @@ declare module '@tanstack/react-router' {
       path: '/quiz'
       fullPath: '/app/quiz'
       preLoaderRoute: typeof AppQuizRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/profile': {
+      id: '/app/profile'
+      path: '/profile'
+      fullPath: '/app/profile'
+      preLoaderRoute: typeof AppProfileRouteImport
       parentRoute: typeof AppRoute
     }
     '/app/prediction': {
@@ -578,6 +597,7 @@ interface AppRouteChildren {
   AppImageNotesRoute: typeof AppImageNotesRoute
   AppPlannerRoute: typeof AppPlannerRoute
   AppPredictionRoute: typeof AppPredictionRoute
+  AppProfileRoute: typeof AppProfileRoute
   AppQuizRoute: typeof AppQuizRouteWithChildren
   AppReportRoute: typeof AppReportRoute
   AppRevisionRoute: typeof AppRevisionRoute
@@ -600,6 +620,7 @@ const AppRouteChildren: AppRouteChildren = {
   AppImageNotesRoute: AppImageNotesRoute,
   AppPlannerRoute: AppPlannerRoute,
   AppPredictionRoute: AppPredictionRoute,
+  AppProfileRoute: AppProfileRoute,
   AppQuizRoute: AppQuizRouteWithChildren,
   AppReportRoute: AppReportRoute,
   AppRevisionRoute: AppRevisionRoute,
