@@ -31,6 +31,7 @@ import { Route as AppExplainRouteImport } from './routes/app.explain'
 import { Route as AppCountdownRouteImport } from './routes/app.countdown'
 import { Route as AppCommunityRouteImport } from './routes/app.community'
 import { Route as AppChatRouteImport } from './routes/app.chat'
+import { Route as AppBurnoutRouteImport } from './routes/app.burnout'
 import { Route as AppAnalyticsRouteImport } from './routes/app.analytics'
 import { Route as AppAdaptiveRouteImport } from './routes/app.adaptive'
 import { Route as AppQuizResultsRouteImport } from './routes/app.quiz.results'
@@ -146,6 +147,11 @@ const AppChatRoute = AppChatRouteImport.update({
   path: '/chat',
   getParentRoute: () => AppRoute,
 } as any)
+const AppBurnoutRoute = AppBurnoutRouteImport.update({
+  id: '/burnout',
+  path: '/burnout',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppAnalyticsRoute = AppAnalyticsRouteImport.update({
   id: '/analytics',
   path: '/analytics',
@@ -176,6 +182,7 @@ export interface FileRoutesByFullPath {
   '/verify-email': typeof VerifyEmailRoute
   '/app/adaptive': typeof AppAdaptiveRoute
   '/app/analytics': typeof AppAnalyticsRoute
+  '/app/burnout': typeof AppBurnoutRoute
   '/app/chat': typeof AppChatRoute
   '/app/community': typeof AppCommunityRoute
   '/app/countdown': typeof AppCountdownRoute
@@ -203,6 +210,7 @@ export interface FileRoutesByTo {
   '/verify-email': typeof VerifyEmailRoute
   '/app/adaptive': typeof AppAdaptiveRoute
   '/app/analytics': typeof AppAnalyticsRoute
+  '/app/burnout': typeof AppBurnoutRoute
   '/app/chat': typeof AppChatRoute
   '/app/community': typeof AppCommunityRoute
   '/app/countdown': typeof AppCountdownRoute
@@ -232,6 +240,7 @@ export interface FileRoutesById {
   '/verify-email': typeof VerifyEmailRoute
   '/app/adaptive': typeof AppAdaptiveRoute
   '/app/analytics': typeof AppAnalyticsRoute
+  '/app/burnout': typeof AppBurnoutRoute
   '/app/chat': typeof AppChatRoute
   '/app/community': typeof AppCommunityRoute
   '/app/countdown': typeof AppCountdownRoute
@@ -262,6 +271,7 @@ export interface FileRouteTypes {
     | '/verify-email'
     | '/app/adaptive'
     | '/app/analytics'
+    | '/app/burnout'
     | '/app/chat'
     | '/app/community'
     | '/app/countdown'
@@ -289,6 +299,7 @@ export interface FileRouteTypes {
     | '/verify-email'
     | '/app/adaptive'
     | '/app/analytics'
+    | '/app/burnout'
     | '/app/chat'
     | '/app/community'
     | '/app/countdown'
@@ -317,6 +328,7 @@ export interface FileRouteTypes {
     | '/verify-email'
     | '/app/adaptive'
     | '/app/analytics'
+    | '/app/burnout'
     | '/app/chat'
     | '/app/community'
     | '/app/countdown'
@@ -502,6 +514,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppChatRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/burnout': {
+      id: '/app/burnout'
+      path: '/burnout'
+      fullPath: '/app/burnout'
+      preLoaderRoute: typeof AppBurnoutRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/app/analytics': {
       id: '/app/analytics'
       path: '/analytics'
@@ -549,6 +568,7 @@ const AppQuizRouteWithChildren =
 interface AppRouteChildren {
   AppAdaptiveRoute: typeof AppAdaptiveRoute
   AppAnalyticsRoute: typeof AppAnalyticsRoute
+  AppBurnoutRoute: typeof AppBurnoutRoute
   AppChatRoute: typeof AppChatRoute
   AppCommunityRoute: typeof AppCommunityRoute
   AppCountdownRoute: typeof AppCountdownRoute
@@ -570,6 +590,7 @@ interface AppRouteChildren {
 const AppRouteChildren: AppRouteChildren = {
   AppAdaptiveRoute: AppAdaptiveRoute,
   AppAnalyticsRoute: AppAnalyticsRoute,
+  AppBurnoutRoute: AppBurnoutRoute,
   AppChatRoute: AppChatRoute,
   AppCommunityRoute: AppCommunityRoute,
   AppCountdownRoute: AppCountdownRoute,
