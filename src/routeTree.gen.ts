@@ -9,38 +9,356 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as VerifyEmailRouteImport } from './routes/verify-email'
+import { Route as SignupRouteImport } from './routes/signup'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
+import { Route as AppRouteImport } from './routes/app'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AppIndexRouteImport } from './routes/app.index'
+import { Route as AppWeaknessRouteImport } from './routes/app.weakness'
+import { Route as AppUploadRouteImport } from './routes/app.upload'
+import { Route as AppStudyBuddyRouteImport } from './routes/app.study-buddy'
+import { Route as AppRevisionRouteImport } from './routes/app.revision'
+import { Route as AppReportRouteImport } from './routes/app.report'
+import { Route as AppQuizRouteImport } from './routes/app.quiz'
+import { Route as AppPredictionRouteImport } from './routes/app.prediction'
+import { Route as AppPlannerRouteImport } from './routes/app.planner'
+import { Route as AppGoalsRouteImport } from './routes/app.goals'
+import { Route as AppFocusRouteImport } from './routes/app.focus'
+import { Route as AppExplainRouteImport } from './routes/app.explain'
+import { Route as AppCountdownRouteImport } from './routes/app.countdown'
+import { Route as AppCommunityRouteImport } from './routes/app.community'
+import { Route as AppChatRouteImport } from './routes/app.chat'
+import { Route as AppAnalyticsRouteImport } from './routes/app.analytics'
+import { Route as AppQuizResultsRouteImport } from './routes/app.quiz.results'
+import { Route as AppQuizAttemptRouteImport } from './routes/app.quiz.attempt'
 
+const VerifyEmailRoute = VerifyEmailRouteImport.update({
+  id: '/verify-email',
+  path: '/verify-email',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForgotPasswordRoute = ForgotPasswordRouteImport.update({
+  id: '/forgot-password',
+  path: '/forgot-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppRoute = AppRouteImport.update({
+  id: '/app',
+  path: '/app',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppIndexRoute = AppIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppWeaknessRoute = AppWeaknessRouteImport.update({
+  id: '/weakness',
+  path: '/weakness',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppUploadRoute = AppUploadRouteImport.update({
+  id: '/upload',
+  path: '/upload',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppStudyBuddyRoute = AppStudyBuddyRouteImport.update({
+  id: '/study-buddy',
+  path: '/study-buddy',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppRevisionRoute = AppRevisionRouteImport.update({
+  id: '/revision',
+  path: '/revision',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppReportRoute = AppReportRouteImport.update({
+  id: '/report',
+  path: '/report',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppQuizRoute = AppQuizRouteImport.update({
+  id: '/quiz',
+  path: '/quiz',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppPredictionRoute = AppPredictionRouteImport.update({
+  id: '/prediction',
+  path: '/prediction',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppPlannerRoute = AppPlannerRouteImport.update({
+  id: '/planner',
+  path: '/planner',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppGoalsRoute = AppGoalsRouteImport.update({
+  id: '/goals',
+  path: '/goals',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppFocusRoute = AppFocusRouteImport.update({
+  id: '/focus',
+  path: '/focus',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppExplainRoute = AppExplainRouteImport.update({
+  id: '/explain',
+  path: '/explain',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppCountdownRoute = AppCountdownRouteImport.update({
+  id: '/countdown',
+  path: '/countdown',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppCommunityRoute = AppCommunityRouteImport.update({
+  id: '/community',
+  path: '/community',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppChatRoute = AppChatRouteImport.update({
+  id: '/chat',
+  path: '/chat',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppAnalyticsRoute = AppAnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppQuizResultsRoute = AppQuizResultsRouteImport.update({
+  id: '/results',
+  path: '/results',
+  getParentRoute: () => AppQuizRoute,
+} as any)
+const AppQuizAttemptRoute = AppQuizAttemptRouteImport.update({
+  id: '/attempt',
+  path: '/attempt',
+  getParentRoute: () => AppQuizRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/app': typeof AppRouteWithChildren
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/login': typeof LoginRoute
+  '/signup': typeof SignupRoute
+  '/verify-email': typeof VerifyEmailRoute
+  '/app/analytics': typeof AppAnalyticsRoute
+  '/app/chat': typeof AppChatRoute
+  '/app/community': typeof AppCommunityRoute
+  '/app/countdown': typeof AppCountdownRoute
+  '/app/explain': typeof AppExplainRoute
+  '/app/focus': typeof AppFocusRoute
+  '/app/goals': typeof AppGoalsRoute
+  '/app/planner': typeof AppPlannerRoute
+  '/app/prediction': typeof AppPredictionRoute
+  '/app/quiz': typeof AppQuizRouteWithChildren
+  '/app/report': typeof AppReportRoute
+  '/app/revision': typeof AppRevisionRoute
+  '/app/study-buddy': typeof AppStudyBuddyRoute
+  '/app/upload': typeof AppUploadRoute
+  '/app/weakness': typeof AppWeaknessRoute
+  '/app/': typeof AppIndexRoute
+  '/app/quiz/attempt': typeof AppQuizAttemptRoute
+  '/app/quiz/results': typeof AppQuizResultsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/login': typeof LoginRoute
+  '/signup': typeof SignupRoute
+  '/verify-email': typeof VerifyEmailRoute
+  '/app/analytics': typeof AppAnalyticsRoute
+  '/app/chat': typeof AppChatRoute
+  '/app/community': typeof AppCommunityRoute
+  '/app/countdown': typeof AppCountdownRoute
+  '/app/explain': typeof AppExplainRoute
+  '/app/focus': typeof AppFocusRoute
+  '/app/goals': typeof AppGoalsRoute
+  '/app/planner': typeof AppPlannerRoute
+  '/app/prediction': typeof AppPredictionRoute
+  '/app/quiz': typeof AppQuizRouteWithChildren
+  '/app/report': typeof AppReportRoute
+  '/app/revision': typeof AppRevisionRoute
+  '/app/study-buddy': typeof AppStudyBuddyRoute
+  '/app/upload': typeof AppUploadRoute
+  '/app/weakness': typeof AppWeaknessRoute
+  '/app': typeof AppIndexRoute
+  '/app/quiz/attempt': typeof AppQuizAttemptRoute
+  '/app/quiz/results': typeof AppQuizResultsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/app': typeof AppRouteWithChildren
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/login': typeof LoginRoute
+  '/signup': typeof SignupRoute
+  '/verify-email': typeof VerifyEmailRoute
+  '/app/analytics': typeof AppAnalyticsRoute
+  '/app/chat': typeof AppChatRoute
+  '/app/community': typeof AppCommunityRoute
+  '/app/countdown': typeof AppCountdownRoute
+  '/app/explain': typeof AppExplainRoute
+  '/app/focus': typeof AppFocusRoute
+  '/app/goals': typeof AppGoalsRoute
+  '/app/planner': typeof AppPlannerRoute
+  '/app/prediction': typeof AppPredictionRoute
+  '/app/quiz': typeof AppQuizRouteWithChildren
+  '/app/report': typeof AppReportRoute
+  '/app/revision': typeof AppRevisionRoute
+  '/app/study-buddy': typeof AppStudyBuddyRoute
+  '/app/upload': typeof AppUploadRoute
+  '/app/weakness': typeof AppWeaknessRoute
+  '/app/': typeof AppIndexRoute
+  '/app/quiz/attempt': typeof AppQuizAttemptRoute
+  '/app/quiz/results': typeof AppQuizResultsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/app'
+    | '/forgot-password'
+    | '/login'
+    | '/signup'
+    | '/verify-email'
+    | '/app/analytics'
+    | '/app/chat'
+    | '/app/community'
+    | '/app/countdown'
+    | '/app/explain'
+    | '/app/focus'
+    | '/app/goals'
+    | '/app/planner'
+    | '/app/prediction'
+    | '/app/quiz'
+    | '/app/report'
+    | '/app/revision'
+    | '/app/study-buddy'
+    | '/app/upload'
+    | '/app/weakness'
+    | '/app/'
+    | '/app/quiz/attempt'
+    | '/app/quiz/results'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/forgot-password'
+    | '/login'
+    | '/signup'
+    | '/verify-email'
+    | '/app/analytics'
+    | '/app/chat'
+    | '/app/community'
+    | '/app/countdown'
+    | '/app/explain'
+    | '/app/focus'
+    | '/app/goals'
+    | '/app/planner'
+    | '/app/prediction'
+    | '/app/quiz'
+    | '/app/report'
+    | '/app/revision'
+    | '/app/study-buddy'
+    | '/app/upload'
+    | '/app/weakness'
+    | '/app'
+    | '/app/quiz/attempt'
+    | '/app/quiz/results'
+  id:
+    | '__root__'
+    | '/'
+    | '/app'
+    | '/forgot-password'
+    | '/login'
+    | '/signup'
+    | '/verify-email'
+    | '/app/analytics'
+    | '/app/chat'
+    | '/app/community'
+    | '/app/countdown'
+    | '/app/explain'
+    | '/app/focus'
+    | '/app/goals'
+    | '/app/planner'
+    | '/app/prediction'
+    | '/app/quiz'
+    | '/app/report'
+    | '/app/revision'
+    | '/app/study-buddy'
+    | '/app/upload'
+    | '/app/weakness'
+    | '/app/'
+    | '/app/quiz/attempt'
+    | '/app/quiz/results'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AppRoute: typeof AppRouteWithChildren
+  ForgotPasswordRoute: typeof ForgotPasswordRoute
+  LoginRoute: typeof LoginRoute
+  SignupRoute: typeof SignupRoute
+  VerifyEmailRoute: typeof VerifyEmailRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/verify-email': {
+      id: '/verify-email'
+      path: '/verify-email'
+      fullPath: '/verify-email'
+      preLoaderRoute: typeof VerifyEmailRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/forgot-password': {
+      id: '/forgot-password'
+      path: '/forgot-password'
+      fullPath: '/forgot-password'
+      preLoaderRoute: typeof ForgotPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app': {
+      id: '/app'
+      path: '/app'
+      fullPath: '/app'
+      preLoaderRoute: typeof AppRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +366,196 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/app/': {
+      id: '/app/'
+      path: '/'
+      fullPath: '/app/'
+      preLoaderRoute: typeof AppIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/weakness': {
+      id: '/app/weakness'
+      path: '/weakness'
+      fullPath: '/app/weakness'
+      preLoaderRoute: typeof AppWeaknessRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/upload': {
+      id: '/app/upload'
+      path: '/upload'
+      fullPath: '/app/upload'
+      preLoaderRoute: typeof AppUploadRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/study-buddy': {
+      id: '/app/study-buddy'
+      path: '/study-buddy'
+      fullPath: '/app/study-buddy'
+      preLoaderRoute: typeof AppStudyBuddyRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/revision': {
+      id: '/app/revision'
+      path: '/revision'
+      fullPath: '/app/revision'
+      preLoaderRoute: typeof AppRevisionRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/report': {
+      id: '/app/report'
+      path: '/report'
+      fullPath: '/app/report'
+      preLoaderRoute: typeof AppReportRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/quiz': {
+      id: '/app/quiz'
+      path: '/quiz'
+      fullPath: '/app/quiz'
+      preLoaderRoute: typeof AppQuizRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/prediction': {
+      id: '/app/prediction'
+      path: '/prediction'
+      fullPath: '/app/prediction'
+      preLoaderRoute: typeof AppPredictionRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/planner': {
+      id: '/app/planner'
+      path: '/planner'
+      fullPath: '/app/planner'
+      preLoaderRoute: typeof AppPlannerRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/goals': {
+      id: '/app/goals'
+      path: '/goals'
+      fullPath: '/app/goals'
+      preLoaderRoute: typeof AppGoalsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/focus': {
+      id: '/app/focus'
+      path: '/focus'
+      fullPath: '/app/focus'
+      preLoaderRoute: typeof AppFocusRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/explain': {
+      id: '/app/explain'
+      path: '/explain'
+      fullPath: '/app/explain'
+      preLoaderRoute: typeof AppExplainRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/countdown': {
+      id: '/app/countdown'
+      path: '/countdown'
+      fullPath: '/app/countdown'
+      preLoaderRoute: typeof AppCountdownRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/community': {
+      id: '/app/community'
+      path: '/community'
+      fullPath: '/app/community'
+      preLoaderRoute: typeof AppCommunityRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/chat': {
+      id: '/app/chat'
+      path: '/chat'
+      fullPath: '/app/chat'
+      preLoaderRoute: typeof AppChatRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/analytics': {
+      id: '/app/analytics'
+      path: '/analytics'
+      fullPath: '/app/analytics'
+      preLoaderRoute: typeof AppAnalyticsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/quiz/results': {
+      id: '/app/quiz/results'
+      path: '/results'
+      fullPath: '/app/quiz/results'
+      preLoaderRoute: typeof AppQuizResultsRouteImport
+      parentRoute: typeof AppQuizRoute
+    }
+    '/app/quiz/attempt': {
+      id: '/app/quiz/attempt'
+      path: '/attempt'
+      fullPath: '/app/quiz/attempt'
+      preLoaderRoute: typeof AppQuizAttemptRouteImport
+      parentRoute: typeof AppQuizRoute
+    }
   }
 }
 
+interface AppQuizRouteChildren {
+  AppQuizAttemptRoute: typeof AppQuizAttemptRoute
+  AppQuizResultsRoute: typeof AppQuizResultsRoute
+}
+
+const AppQuizRouteChildren: AppQuizRouteChildren = {
+  AppQuizAttemptRoute: AppQuizAttemptRoute,
+  AppQuizResultsRoute: AppQuizResultsRoute,
+}
+
+const AppQuizRouteWithChildren =
+  AppQuizRoute._addFileChildren(AppQuizRouteChildren)
+
+interface AppRouteChildren {
+  AppAnalyticsRoute: typeof AppAnalyticsRoute
+  AppChatRoute: typeof AppChatRoute
+  AppCommunityRoute: typeof AppCommunityRoute
+  AppCountdownRoute: typeof AppCountdownRoute
+  AppExplainRoute: typeof AppExplainRoute
+  AppFocusRoute: typeof AppFocusRoute
+  AppGoalsRoute: typeof AppGoalsRoute
+  AppPlannerRoute: typeof AppPlannerRoute
+  AppPredictionRoute: typeof AppPredictionRoute
+  AppQuizRoute: typeof AppQuizRouteWithChildren
+  AppReportRoute: typeof AppReportRoute
+  AppRevisionRoute: typeof AppRevisionRoute
+  AppStudyBuddyRoute: typeof AppStudyBuddyRoute
+  AppUploadRoute: typeof AppUploadRoute
+  AppWeaknessRoute: typeof AppWeaknessRoute
+  AppIndexRoute: typeof AppIndexRoute
+}
+
+const AppRouteChildren: AppRouteChildren = {
+  AppAnalyticsRoute: AppAnalyticsRoute,
+  AppChatRoute: AppChatRoute,
+  AppCommunityRoute: AppCommunityRoute,
+  AppCountdownRoute: AppCountdownRoute,
+  AppExplainRoute: AppExplainRoute,
+  AppFocusRoute: AppFocusRoute,
+  AppGoalsRoute: AppGoalsRoute,
+  AppPlannerRoute: AppPlannerRoute,
+  AppPredictionRoute: AppPredictionRoute,
+  AppQuizRoute: AppQuizRouteWithChildren,
+  AppReportRoute: AppReportRoute,
+  AppRevisionRoute: AppRevisionRoute,
+  AppStudyBuddyRoute: AppStudyBuddyRoute,
+  AppUploadRoute: AppUploadRoute,
+  AppWeaknessRoute: AppWeaknessRoute,
+  AppIndexRoute: AppIndexRoute,
+}
+
+const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AppRoute: AppRouteWithChildren,
+  ForgotPasswordRoute: ForgotPasswordRoute,
+  LoginRoute: LoginRoute,
+  SignupRoute: SignupRoute,
+  VerifyEmailRoute: VerifyEmailRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

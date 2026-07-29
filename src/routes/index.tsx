@@ -1,24 +1,40 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { SiteNav } from "@/components/marketing/SiteNav";
+import { SiteFooter } from "@/components/marketing/SiteFooter";
+import { Hero } from "@/components/marketing/Hero";
+import { FeatureGrid } from "@/components/marketing/FeatureGrid";
+import { HowItWorks } from "@/components/marketing/HowItWorks";
+import { WhyChoose } from "@/components/marketing/WhyChoose";
+import { FaqSection } from "@/components/marketing/FaqSection";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const title = "SmartPrep AI — Learn Smarter. Prepare Better.";
+const description =
+  "SmartPrep AI turns your syllabus into personalised explanations, quizzes, revision schedules and progress tracking in one calm workspace.";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen">
+      <SiteNav />
+      <main>
+        <Hero />
+        <FeatureGrid />
+        <HowItWorks />
+        <WhyChoose />
+        <FaqSection />
+      </main>
+      <SiteFooter />
     </div>
   );
 }
