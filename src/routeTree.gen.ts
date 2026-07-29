@@ -32,6 +32,7 @@ import { Route as AppCountdownRouteImport } from './routes/app.countdown'
 import { Route as AppCommunityRouteImport } from './routes/app.community'
 import { Route as AppChatRouteImport } from './routes/app.chat'
 import { Route as AppAnalyticsRouteImport } from './routes/app.analytics'
+import { Route as AppAdaptiveRouteImport } from './routes/app.adaptive'
 import { Route as AppQuizResultsRouteImport } from './routes/app.quiz.results'
 import { Route as AppQuizAttemptRouteImport } from './routes/app.quiz.attempt'
 
@@ -150,6 +151,11 @@ const AppAnalyticsRoute = AppAnalyticsRouteImport.update({
   path: '/analytics',
   getParentRoute: () => AppRoute,
 } as any)
+const AppAdaptiveRoute = AppAdaptiveRouteImport.update({
+  id: '/adaptive',
+  path: '/adaptive',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppQuizResultsRoute = AppQuizResultsRouteImport.update({
   id: '/results',
   path: '/results',
@@ -168,6 +174,7 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/signup': typeof SignupRoute
   '/verify-email': typeof VerifyEmailRoute
+  '/app/adaptive': typeof AppAdaptiveRoute
   '/app/analytics': typeof AppAnalyticsRoute
   '/app/chat': typeof AppChatRoute
   '/app/community': typeof AppCommunityRoute
@@ -194,6 +201,7 @@ export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/signup': typeof SignupRoute
   '/verify-email': typeof VerifyEmailRoute
+  '/app/adaptive': typeof AppAdaptiveRoute
   '/app/analytics': typeof AppAnalyticsRoute
   '/app/chat': typeof AppChatRoute
   '/app/community': typeof AppCommunityRoute
@@ -222,6 +230,7 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/signup': typeof SignupRoute
   '/verify-email': typeof VerifyEmailRoute
+  '/app/adaptive': typeof AppAdaptiveRoute
   '/app/analytics': typeof AppAnalyticsRoute
   '/app/chat': typeof AppChatRoute
   '/app/community': typeof AppCommunityRoute
@@ -251,6 +260,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/signup'
     | '/verify-email'
+    | '/app/adaptive'
     | '/app/analytics'
     | '/app/chat'
     | '/app/community'
@@ -277,6 +287,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/signup'
     | '/verify-email'
+    | '/app/adaptive'
     | '/app/analytics'
     | '/app/chat'
     | '/app/community'
@@ -304,6 +315,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/signup'
     | '/verify-email'
+    | '/app/adaptive'
     | '/app/analytics'
     | '/app/chat'
     | '/app/community'
@@ -497,6 +509,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppAnalyticsRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/adaptive': {
+      id: '/app/adaptive'
+      path: '/adaptive'
+      fullPath: '/app/adaptive'
+      preLoaderRoute: typeof AppAdaptiveRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/app/quiz/results': {
       id: '/app/quiz/results'
       path: '/results'
@@ -528,6 +547,7 @@ const AppQuizRouteWithChildren =
   AppQuizRoute._addFileChildren(AppQuizRouteChildren)
 
 interface AppRouteChildren {
+  AppAdaptiveRoute: typeof AppAdaptiveRoute
   AppAnalyticsRoute: typeof AppAnalyticsRoute
   AppChatRoute: typeof AppChatRoute
   AppCommunityRoute: typeof AppCommunityRoute
@@ -548,6 +568,7 @@ interface AppRouteChildren {
 }
 
 const AppRouteChildren: AppRouteChildren = {
+  AppAdaptiveRoute: AppAdaptiveRoute,
   AppAnalyticsRoute: AppAnalyticsRoute,
   AppChatRoute: AppChatRoute,
   AppCommunityRoute: AppCommunityRoute,
